@@ -20,9 +20,20 @@ margin: 1em;
     background: firebrick
 }
 
+.alpha-btn:disabled {
+    background-color: black;
+}
+
 #game {
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
 }
+
+#gallows {
+    width: 200px;
+    height: 100px;
+    border: darkblue dashed 2px;
+    padding: 15px;
+}  
