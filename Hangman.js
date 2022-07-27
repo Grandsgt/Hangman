@@ -15,10 +15,10 @@ const alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
         myBtn.setAttribute('id', 'btn-'+ alpha[i]);
         myBtn.setAttribute('class', 'alpha-btn');
         myBtn.innerText = alpha[i];
-        insert.appendChild(myBtn);
         myBtn.addEventListener('click', (e) => {
-            check(e.target.innerText);
+            checker(e.target.innerText);
           }); 
+          insert.appendChild(myBtn);
     
     }
 
