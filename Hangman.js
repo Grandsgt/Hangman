@@ -1,33 +1,45 @@
 const alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
  'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
- let words = ['java', 'Multiverse'];
+ let words = ['JAVA', 'MULTIVERSE', "aki'tano, chan"];
  let word = [];
  let tl = 0;
  let answer = [];
  let guesses = 5;
 
- function newGame() {
 
+ function newGame() {
+    guesses = 5;
     for (i = 0; i < alpha.length; i++) {
         const myBtn = document.createElement('button');
         const insert = document.getElementById('alphabet');
         myBtn.setAttribute('id', 'btn-'+ alpha[i]);
         myBtn.setAttribute('class', 'alpha-btn');
         myBtn.innerText = alpha[i];
-        myBtn.addEventListener('click', (e) => {
+        myBtn.addEventListener('click',(e) => {
             checker(e.target.innerText);
+            console.log(e.target.innerText);
           }); 
-          insert.appendChild(myBtn);
+        insert.appendChild(myBtn);
     
     }
 
     word = words[Math.floor(Math.random() * words.length)];
     word = word.toUpperCase().split('');
     tl = word.length;
-    guesses = 5;
+
+
+
+
     for (i = 0; i < word.length; i++) {
-        answer.push('_');
+        if (/^[A-Za-z]*$/.test(word[i])){
+            answer.push('_');
+        } else if (word[i] === ' ') {
+            answer.push('/')
+            tl--;
+        } else { answer.push(word[i]);
+            tl--;
+        }
         const letterDisplay = document.createElement('p');
         const insert = document.getElementById('game');
         letterDisplay.setAttribute('name', 'displayChar');
@@ -47,7 +59,7 @@ function clickedA(){checker('a')}
  function checker(input) {
     let j = 0;
     let inputCaps = input.toUpperCase();
-    for (i = 0; i > word.length; i++) {
+    for (i = 0; i < word.length; i++) {
         if (word[i] == inputCaps) {
             answer[i] = inputCaps;
             let updateCharacter = document.getElementById('block-'+i);
@@ -64,10 +76,13 @@ function clickedA(){checker('a')}
         if (guesses == 0) {
            console.log('Loser!'); 
            //loser placeholder
+           
         }
     }
+    document.getElementById('btn-' + input).disabled = true;
  }
 
+ newGame();
 
 // force input to uppercase, limit string length to 1.
 //you win
@@ -75,5 +90,5 @@ function clickedA(){checker('a')}
  
  /* to do list:
  reset to clear 
- event listeners (onclick)
- graphic displays eg( win/lose pop ups etc..)
+ event listeners (onclick) true
+ graphic displays eg( win/lose pop ups etc..)*/
