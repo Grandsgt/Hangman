@@ -32,6 +32,7 @@ margin: 1em;
 }
 
 #gallows {
+    flex: center;
     width: 200px;
     height: 100px;
     border: darkblue dashed 2px;
