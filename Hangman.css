@@ -13,7 +13,7 @@ margin: 1em;
 #playArea {
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
 }
 .alpha-btn {
@@ -32,9 +32,12 @@ margin: 1em;
 }
 
 #gallows {
-    flex: center;
-    width: 200px;
-    height: 100px;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 1rem groove;
+    margin: 1rem;
     border: darkblue dashed 2px;
-    padding: 15px;
 }  
