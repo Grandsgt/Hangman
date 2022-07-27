@@ -3,10 +3,26 @@ background-color:aliceblue;
 font-size: 1em;
 margin: 1em;
 }
+#alphabet {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
-#playingArea {
+#playArea {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+.alpha-btn {
+    background: firebrick
+}
+
+#game {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
 }
