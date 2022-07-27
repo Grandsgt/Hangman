@@ -82,8 +82,6 @@ function clickedA(){checker('a')}
     document.getElementById('btn-' + input).disabled = true;
  }
 
- newGame();
-
 // force input to uppercase, limit string length to 1.
 //you win
 
