@@ -295,4 +295,5 @@ function updateWord(){
  display difficulty.
  expand answers array.
  stop inputs after loss or win.
+ test.
  */
