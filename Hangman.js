@@ -52,13 +52,6 @@ function updateWord(){
     cleanerList.forEach(character => {character.remove()});
     return setWord();
 }
-/*const btna = document.getElementById('btn-A');
-btna.addEventListener('click', clickedA);
-function clickedA(){checker('a')}
- *//* this takes the input and checks against the word.
- if part of the word, decrement
- if not part of the word, reduce lives
- */ 
  function checker(input) {
     let j = 0;
     let inputCaps = input.toUpperCase();
@@ -76,10 +69,76 @@ function clickedA(){checker('a')}
         } 
     } if (j == 0) {
         guesses--;
-        if (guesses == 0) {
-           console.log('Loser!'); 
-           //loser placeholder
-           
+        if(difficulty == 'easy') {
+            if(guesses == 9) {
+                stage1();
+            }
+            if(guesses == 8) {
+                stage2();
+            }
+            if(guesses == 7) {
+                stage3();
+            }
+            if(guesses == 6) {
+                stage4();
+            }
+            if(guesses == 5) {
+                stage5();
+            }
+            if(guesses == 4) {
+                stage6();
+            }
+            if(guesses == 3) {
+                stage7();
+            }
+            if(guesses == 2) {
+                stage8();
+            }
+            if(guesses == 1) {
+                stage9();
+            }
+            if(guesses == 0) {
+                stage10();
+                console.log('Loser!');
+            }
+        } else if (difficulty == 'normal') {
+            if(guesses == 4) {
+                stage1();
+                stage2();
+            }
+            if(guesses == 3) {
+                stage3();
+                stage4();
+            }
+            if(guesses == 2) {
+                stage5();
+                stage6();
+            }
+            if(guesses == 1) {
+                stage7();
+                stage10();
+            }
+            if(guesses == 0) {
+                stage8();
+                stage9();
+                console.log('Loser!')
+            }
+        } else if (difficulty == 'hard') {
+            if (guesses == 1) {
+                stage1();
+                stage2();
+                stage3();
+                stage4();
+                stage5();
+            }
+            if (guesses == 0) {
+                stage6();
+                stage7();
+                stage8();
+                stage9();
+                stage10();
+                console.log('Loser!')
+            }
         }
     }
     document.getElementById('btn-' + input).disabled = true;
@@ -88,21 +147,24 @@ function clickedA(){checker('a')}
  const ez = document.getElementById('easy');
  ez.addEventListener('click', setEasy);
  function setEasy(){
-    difficulty = 'easy'
+    difficulty = 'easy';
+    console.log('Easy');
     return reseter();
  }
  
  const norm = document.getElementById('normal');
  norm.addEventListener('click', setNormal);
  function setNormal(){
-    difficulty = 'normal'
+    difficulty = 'normal';
+    console.log('Normal');
     return reseter();
  }
 
  const hrd = document.getElementById('hard');
  hrd.addEventListener('click', setHard);
  function setHard(){
-    difficulty = 'hard'
+    difficulty = 'hard';
+    console.log('Hard');
     return reseter();
  }
 
@@ -110,6 +172,9 @@ function clickedA(){checker('a')}
  regm.addEventListener('click', reseter);
 
  function reseter(){
+    const canvas = document.getElementById('gallows');
+    const context = canvas.getContext('2d');
+    context.clearRect(0, 0, canvas.width, canvas.height);
     for (i = 0; i < alpha.length; i++) {
         document.getElementById('btn-' + alpha[i]).disabled = false;
         if (difficulty === 'easy') {
@@ -120,11 +185,107 @@ function clickedA(){checker('a')}
     } updateWord();
  }
 
-// force input to uppercase, limit string length to 1.
-//you win
-
- 
  /* to do list:
- reset to clear 
- event listeners (onclick) true
  graphic displays eg( win/lose pop ups etc..)*/
+
+
+ // drawing on canvas code below
+ function stage1() {
+    let canvas = document.getElementById('gallows');
+    let context = canvas.getContext('2d');
+    context.beginPath();
+    context.moveTo(20, 140);
+    context.lineTo(80, 140);
+    context.strokeStyle = '#ffffff';
+    context.stroke();
+    console.log('gallow-base')
+ }
+ function stage2() {
+    let canvas = document.getElementById('gallows');
+    let context = canvas.getContext('2d');
+    context.beginPath();
+    context.moveTo(20, 140);
+    context.lineTo(20, 30);
+    context.strokeStyle = '#ffffff';
+    context.stroke();
+    console.log('gallow-pole')
+ }
+ function stage3() {
+    let canvas = document.getElementById('gallows');
+    let context = canvas.getContext('2d');
+    context.beginPath();
+    context.moveTo(20, 30);
+    context.lineTo(50, 30);
+    context.strokeStyle = '#ffffff';
+    context.stroke();
+    console.log('gallow-top')
+ }
+ function stage4() {
+    let canvas = document.getElementById('gallows');
+    let context = canvas.getContext('2d');
+    context.beginPath();
+    context.moveTo(40, 30);
+    context.lineTo(20, 50);
+    context.strokeStyle = '#ffffff';
+    context.stroke();
+    console.log('gallow-support')
+ }
+ function stage5() {
+    let canvas = document.getElementById('gallows');
+    let context = canvas.getContext('2d');
+    context.beginPath();
+    context.moveTo(50, 30);
+    context.lineTo(50, 40);
+    context.strokeStyle = '#ffffff';
+    context.stroke();
+    console.log('rope')
+ }
+ function stage6() {
+    let canvas = document.getElementById('gallows');
+    let context = canvas.getContext('2d');
+    context.beginPath();
+    context.arc(50, 50, 10, 0, 2 * Math.PI);
+    context.strokeStyle = '#ffffff';
+    context.stroke();
+    console.log('head')
+ }
+ function stage7() {
+    let canvas = document.getElementById('gallows');
+    let context = canvas.getContext('2d');
+    context.beginPath();
+    context.moveTo(50, 60);
+    context.lineTo(50, 100);
+    context.strokeStyle = '#ffffff';
+    context.stroke();
+    console.log('body-main')
+ }
+ function stage8() {
+    let canvas = document.getElementById('gallows');
+    let context = canvas.getContext('2d');
+    context.beginPath();
+    context.moveTo(50, 100);
+    context.lineTo(40, 130);
+    context.strokeStyle = '#ffffff';
+    context.stroke();
+    console.log('leg1')
+ }
+ function stage9() {
+    let canvas = document.getElementById('gallows');
+    let context = canvas.getContext('2d');
+    context.beginPath();
+    context.moveTo(50, 100);
+    context.lineTo(60, 130);
+    context.strokeStyle = '#ffffff';
+    context.stroke();
+    console.log('leg2')
+ }
+ function stage10() {
+    let canvas = document.getElementById('gallows');
+    let context = canvas.getContext('2d');
+    context.beginPath();
+    context.moveTo(35, 70);
+    context.lineTo(65, 70);
+    context.strokeStyle = '#ffffff';
+    context.stroke();
+    console.log('arms')
+ }
