@@ -1,8 +1,9 @@
 
 
 .character {
-background-color: whitesmoke;
+background-color: white;
 font-size: 1em;
+font-weight: bold;
 margin: 1em;
 }
 #alphabet {
@@ -19,7 +20,10 @@ margin: 1em;
     justify-content: center;
 }
 .alpha-btn {
-    background: firebrick
+    background: firebrick;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 1rem;
 }
 
 .alpha-btn:disabled {
@@ -35,14 +39,17 @@ margin: 1em;
 }
 
 #gallows {
-    width: 95%;
-    height: 100%;
+    min-width: 95%;
+    max-width: 95%;
+    min-height: 300px;
+    max-height: 400px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     border: 1rem groove;
-    margin: 1rem;
-    border: darkblue dashed 2px;
+    margin: 0.5rem;
+    border: firebrick dashed 2px;
+    background-color: black;
 }  
 
 #menu {
@@ -58,5 +65,5 @@ margin: 1em;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 1rem;
+    margin: 0.2rem;
 }

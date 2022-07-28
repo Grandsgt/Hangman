@@ -6,9 +6,10 @@ const alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
  let tl = 0;
  let answer = [];
  let guesses = 5;
+ let difficulty = 'easy';
 
 
- function newGame() {
+function newGame() {
     guesses = 5;
     for (i = 0; i < alpha.length; i++) {
         const myBtn = document.createElement('button');
@@ -21,16 +22,13 @@ const alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
             console.log(e.target.innerText);
           }); 
         insert.appendChild(myBtn);
-    
-    }
-
+    } return setWord();
+ }
+function setWord() {
+    answer = [];
     word = words[Math.floor(Math.random() * words.length)];
     word = word.toUpperCase().split('');
     tl = word.length;
-
-
-
-
     for (i = 0; i < word.length; i++) {
         if (/^[A-Za-z]*$/.test(word[i])){
             answer.push('_');
@@ -48,7 +46,12 @@ const alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
         letterDisplay.innerText = answer[i];
         insert.appendChild(letterDisplay);
     }
-}   
+}
+function updateWord(){
+    const cleanerList = document.querySelectorAll('.character');
+    cleanerList.forEach(character => {character.remove()});
+    return setWord();
+}
 /*const btna = document.getElementById('btn-A');
 btna.addEventListener('click', clickedA);
 function clickedA(){checker('a')}
@@ -80,6 +83,41 @@ function clickedA(){checker('a')}
         }
     }
     document.getElementById('btn-' + input).disabled = true;
+ }
+
+ const ez = document.getElementById('easy');
+ ez.addEventListener('click', setEasy);
+ function setEasy(){
+    difficulty = 'easy'
+    return reseter();
+ }
+ 
+ const norm = document.getElementById('normal');
+ norm.addEventListener('click', setNormal);
+ function setNormal(){
+    difficulty = 'normal'
+    return reseter();
+ }
+
+ const hrd = document.getElementById('hard');
+ hrd.addEventListener('click', setHard);
+ function setHard(){
+    difficulty = 'hard'
+    return reseter();
+ }
+
+ const regm = document.getElementById('reset');
+ regm.addEventListener('click', reseter);
+
+ function reseter(){
+    for (i = 0; i < alpha.length; i++) {
+        document.getElementById('btn-' + alpha[i]).disabled = false;
+        if (difficulty === 'easy') {
+            guesses = 10;
+        } else if (difficulty === 'normal') {
+            guesses = 5;
+        } else {guesses = 2;}
+    } updateWord();
  }
 
 // force input to uppercase, limit string length to 1.
