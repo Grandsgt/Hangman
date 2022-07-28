@@ -7,7 +7,7 @@ const alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
  let answer = [];
  let guesses = 5;
  let difficulty = 'easy';
-
+ 
 
 function newGame() {
     guesses = 5;
@@ -22,7 +22,8 @@ function newGame() {
             console.log(e.target.innerText);
           }); 
         insert.appendChild(myBtn);
-    } return setWord();
+    } 
+    return setWord();
  }
 function setWord() {
     answer = [];
@@ -289,3 +290,9 @@ function updateWord(){
     context.stroke();
     console.log('arms')
  }
+
+ /* lives counter. 
+ display difficulty.
+ expand answers array.
+ stop inputs after loss or win.
+ 
