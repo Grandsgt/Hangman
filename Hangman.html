@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Callum's Hangman</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="Hangman.css">
+        <script src="Hangman.js" defer></script>
+    </head>
+    <body onload="newGame();">
+        
+        <div id="playarea">
+           
+            <div id="game">
+
+            </div>
+            <canvas id="gallows"></canvas>
+            <div id="alphabet">
+
+            </div>
+            <div id="lives">
+            </div>
+            <div id="menu">
+                <button class="menubtn" id="reset">Reset</button>
+                <button class="menubtn" id="easy">Easy</button>
+                <button class="menubtn" id="normal">Normal</button>
+                <button class="menubtn" id="hard">Hard</button>
+            </div>
+        </div>
+    </body>
+</html>
