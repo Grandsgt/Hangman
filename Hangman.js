@@ -30,22 +30,22 @@ code1.addEventListener('click', codeGenre);
 
 function geoGenre() {
     words = countries;
-    return updateWord();
+    return reseter();
 }
 
 function histGenre() {
     words = historic;
-    return updateWord();
+    return reseter();
 }
 
 function fanGenre() {
     words = fantasy;
-    return updateWord();
+    return reseter();
 }
 
 function codeGenre() {
     words = coding;
-    return updateWord();
+    return reseter();
 }
 
 
