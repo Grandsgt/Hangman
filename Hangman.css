@@ -161,6 +161,9 @@ margin-inline-end: 0.75em;
         transition: transform 350ms ease-out;
         background: rgba(0, 0, 0, 0.584);
     }
+    .navigation[data-visible='false'] {
+        transition: transform 350ms ease-in;
+    }
     .nav-toggle {
         display: block;
         position: fixed;
