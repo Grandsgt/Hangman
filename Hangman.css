@@ -51,6 +51,7 @@ margin-right: 1.2em;
     min-block-size: 3.5rem;
     aspect-ratio: 1;
     margin-right: 0.2rem;
+    margin-bottom: 0.2rem;
     font-family: 'Copperplate';
 }
 
@@ -84,6 +85,8 @@ margin-right: 1.2em;
     margin: 0 auto 0 auto;
     border: white groove 3px;
     background-color: transparent;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 
 }  
 
@@ -101,7 +104,7 @@ margin-right: 1.2em;
     justify-content: center;
     flex-wrap: wrap;
     padding: 0.5rem;
-    margin-right: 0.5rem;
+    margin-right: 1rem;
 }
 
 .flex {
