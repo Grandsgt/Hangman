@@ -1,10 +1,33 @@
 
-
+body {
+    background: url(https://images3.alphacoders.com/117/thumb-1920-1174531.jpg) #000000;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-width: 443px;
+    font-family: 'Copperplate', Arial, Helvetica, sans-serif;
+} 
 .character {
 background-color: #ffffff;
 font-size: 1em;
-font-weight: bold;
-margin: 1em;
+font-weight: bolder;
+margin-right: 1.2em;
+}
+.mode {
+    font-size: large;
+    font-family: 'Copperplate';
+    color: white;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.5);
+
+}
+#prime-nav {
+    font-style: italic;
+    font-size: large;
+    
+}
+#input-output {
+    flex-direction: row;
 }
 #alphabet {
     display: flex;
@@ -13,17 +36,21 @@ margin: 1em;
     flex-wrap: wrap;
 }
 
-#playArea {
-    width: 100%;
-    display: flex;
+#playarea {
+    display: block;
     flex-direction: column;
     justify-content: center;
+    margin: auto;
+    margin-top: 1rem;
+    max-width: 900px;
 }
 .alpha-btn {
     background: firebrick;
     font-size: 1.5rem;
     font-weight: bold;
-    padding: 1rem;
+    min-block-size: 3.5rem;
+    aspect-ratio: 1;
+    margin-right: 0.2rem;
 }
 
 .alpha-btn:disabled {
@@ -36,20 +63,27 @@ margin: 1em;
     justify-content: center;
     flex-wrap: wrap;
     border: 0.3rem groove firebrick;
+    background:#ffffff;
 }
-
-#gallows {
-    min-width: 95%;
-    max-width: 95%;
-    min-height: 300px;
-    max-height: 400px;
+#personal-array {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    flex-direction: column;
+    flex-wrap: wrap;
+    font-style: italic;
+    color: #ffffff;
+
+}
+#gallows {
+    max-width: 400px;
+    min-height: 400px ;
+    display: block;
+    justify-content: center;
     border: 1rem groove;
-    margin: 0.5rem;
-    border: firebrick dashed 2px;
-    background-color: black;
+    margin: 0 auto 0 auto;
+    border: white groove 3px;
+    background-color: transparent;
+
 }  
 
 #menu {
@@ -65,5 +99,87 @@ margin: 1em;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 0.2rem;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem)
+}
+.logo {
+    margin: 2rem;
+}
+
+.primary-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.navigation a {
+ background-color:#ffffff;
+ border: firebrick groove 5px;
+ padding: 2px;
+}
+.nav-toggle {
+    display: none;
+}
+.navigation {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+@supports (backdrop-filter: blur(1rem)) {
+    .navigation {
+        background: hsl(0, 0%, 100%, 0.1);
+        backdrop-filter: blur(1rem);
+    }
+}
+.navigation a{
+    text-decoration: none;
+
+}
+.navigation a > [aria-hidden="true"]{
+font-weight: 700;
+margin-inline-end: 0.75em;
+}
+@media (max-width: 768px) {
+    .navigation {
+        --gap: 3em;
+        position: fixed;
+        inset: 0 0 0 30%;
+        flex-direction: column;
+        padding: min(30vh, 10rem) 2rem;
+        z-index: 1000;
+        transform: translateX(100%);
+    }
+    .navigation[data-visible='true'] {
+        transform: translateX(50%);
+        transition: transform 350ms ease-out;
+        background: rgba(0, 0, 0, 0.584);
+    }
+    .nav-toggle {
+        display: block;
+        position: fixed;
+        background: url(https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg);
+        background-repeat: no-repeat;
+        border: 0.25rem groove;
+        width: 2rem;
+        border: 0;
+        aspect-ratio: 1;
+        top: 1rem;
+        right: 1rem;
+        z-index: 9999
+    }
+    #playarea {
+        margin-top: 3rem;
+    }
+    .navigation a{
+        border: none;
+    }
+    .primary-header {
+        flex-direction: column;
+    }
 }

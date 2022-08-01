@@ -10,7 +10,27 @@
         <script src="Hangman.js" defer></script>
     </head>
     <body onload="newGame();">
-        
+        <header class = "primary-header">
+            <div><button class="nav-toggle" aria-controls="navigation" aria-expanded="false">
+            </button>
+            </div>
+            <nav>
+                <ul id="prime-nav" data-visible="false" class="navigation flex">
+                    <li class = 'active'>
+                        <button class="mode" id="geo">Geography</button>
+                    </li>
+                    <li>
+                        <button class="mode" id="history">History</button>
+                    </li>
+                    <li> 
+                        <button class="mode" id="fantasy">Fantasy</button>
+                    </li>
+                    <li>
+                        <button class="mode" id="coding">Coding</button>
+                    </li>
+                 </ul>
+            </nav>
+        </header>
         <div id="playarea">
            
             <div id="game">
@@ -18,7 +38,7 @@
             </div>
             <canvas id="gallows"></canvas>
             <div id="alphabet">
-
+                
             </div>
             <div id="lives">
             </div>
@@ -27,6 +47,13 @@
                 <button class="menubtn" id="easy">Easy</button>
                 <button class="menubtn" id="normal">Normal</button>
                 <button class="menubtn" id="hard">Hard</button>
+            </div>
+            <div id="personal-array">
+                <form>
+                    <label for="customWord">Custom Words</label>
+                    <input type="text" id="customWord" name="customWord"/>
+                    <button type="button" id="sub">Submit</button>
+                </form>
             </div>
         </div>
     </body>

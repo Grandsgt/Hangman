@@ -1,16 +1,68 @@
 const alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
  'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
- let words = ['JAVA', 'MULTIVERSE', "aki'tano, chan"];
+ let customWords = [];
+ let countries = ['england', 'wales', 'scotland'];
+ let historic = ['hastings', 'ceasar', 'shogunate'];
+ let fantasy = ['legolas', 'alpharius', 'sigmar'];
+ let coding = ['test', 'java', 'multiverse'];
+ let words = ['test', 'java', 'multiverse'];
  let word = [];
  let tl = 0;
  let answer = [];
  let guesses = 5;
  let difficulty = 'easy';
+
+ const submission = document.getElementById('sub');
+ submission.addEventListener('click', makeArr);
+
+ const geo1 = document.getElementById('geo');
+ geo1.addEventListener('click', geoGenre);
+
+ const hist1 = document.getElementById('history');
+ hist1.addEventListener('click', histGenre);
+
+ const fan1 = document.getElementById('fantasy');
+fan1.addEventListener('click', fanGenre);
+
+const code1 = document.getElementById('coding');
+code1.addEventListener('click', codeGenre);
+
+function geoGenre() {
+    words = countries;
+    return updateWord();
+}
+
+function histGenre() {
+    words = historic;
+    return updateWord();
+}
+
+function fanGenre() {
+    words = fantasy;
+    return updateWord();
+}
+
+function codeGenre() {
+    words = coding;
+    return updateWord();
+}
+
+
+ const nav = document.querySelector('.navigation');
+ const navToggle = document.querySelector('.nav-toggle');
+ navToggle.addEventListener('click', (e) => {
+     const visibility = nav.getAttribute('data-visible');
+     if (visibility === 'false') {
+         nav.setAttribute('data-visible', 'true');
+         navToggle.setAttribute('aria-expanded', 'true');
+ }   else nav.setAttribute('data-visible', 'false');
+         navToggle.setAttribute('aria-expanded', 'false');
+});
  
 
 function newGame() {
-    guesses = 5;
+    guesses = 10;
     for (i = 0; i < alpha.length; i++) {
         const myBtn = document.createElement('button');
         const insert = document.getElementById('alphabet');
@@ -48,6 +100,13 @@ function setWord() {
         insert.appendChild(letterDisplay);
     }
 }
+
+function makeArr() {
+    words = document.getElementById('customWord').value.split(" ");
+    console.log(customWords);
+    return words + updateWord();
+}
+
 function updateWord(){
     const cleanerList = document.querySelectorAll('.character');
     cleanerList.forEach(character => {character.remove()});
@@ -65,6 +124,10 @@ function updateWord(){
             j++;
             if (tl == 0) {
                 console.log('Winner');
+                for (i = 0; i < alpha.length; i++) {
+                    document.getElementById('btn-' + alpha[i]).disabled = true;
+                }
+                
                 // placeholder for winning text pop up.
             }
         } 
@@ -100,6 +163,7 @@ function updateWord(){
             }
             if(guesses == 0) {
                 stage10();
+
                 console.log('Loser!');
             }
         } else if (difficulty == 'normal') {
@@ -139,6 +203,7 @@ function updateWord(){
                 stage9();
                 stage10();
                 console.log('Loser!')
+                
             }
         }
     }
@@ -196,8 +261,9 @@ function updateWord(){
     let context = canvas.getContext('2d');
     context.beginPath();
     context.moveTo(20, 140);
-    context.lineTo(80, 140);
+    context.lineTo(180, 140);
     context.strokeStyle = '#ffffff';
+    context.lineWidth = 3;
     context.stroke();
     console.log('gallow-base')
  }
@@ -208,6 +274,7 @@ function updateWord(){
     context.moveTo(20, 140);
     context.lineTo(20, 30);
     context.strokeStyle = '#ffffff';
+    context.lineWidth = 3;
     context.stroke();
     console.log('gallow-pole')
  }
@@ -216,8 +283,9 @@ function updateWord(){
     let context = canvas.getContext('2d');
     context.beginPath();
     context.moveTo(20, 30);
-    context.lineTo(50, 30);
+    context.lineTo(100, 30);
     context.strokeStyle = '#ffffff';
+    context.lineWidth = 3;
     context.stroke();
     console.log('gallow-top')
  }
@@ -225,9 +293,10 @@ function updateWord(){
     let canvas = document.getElementById('gallows');
     let context = canvas.getContext('2d');
     context.beginPath();
-    context.moveTo(40, 30);
+    context.moveTo(50, 30);
     context.lineTo(20, 50);
     context.strokeStyle = '#ffffff';
+    context.lineWidth = 3;
     context.stroke();
     console.log('gallow-support')
  }
@@ -235,8 +304,8 @@ function updateWord(){
     let canvas = document.getElementById('gallows');
     let context = canvas.getContext('2d');
     context.beginPath();
-    context.moveTo(50, 30);
-    context.lineTo(50, 40);
+    context.moveTo(100, 30);
+    context.lineTo(100, 40);
     context.strokeStyle = '#ffffff';
     context.stroke();
     console.log('rope')
@@ -245,8 +314,9 @@ function updateWord(){
     let canvas = document.getElementById('gallows');
     let context = canvas.getContext('2d');
     context.beginPath();
-    context.arc(50, 50, 10, 0, 2 * Math.PI);
+    context.arc(100, 50, 10, 0, 2 * Math.PI);
     context.strokeStyle = '#ffffff';
+    context.lineWidth = 3;
     context.stroke();
     console.log('head')
  }
@@ -254,9 +324,10 @@ function updateWord(){
     let canvas = document.getElementById('gallows');
     let context = canvas.getContext('2d');
     context.beginPath();
-    context.moveTo(50, 60);
-    context.lineTo(50, 100);
+    context.moveTo(100, 60);
+    context.lineTo(100, 100);
     context.strokeStyle = '#ffffff';
+    context.lineWidth = 3;
     context.stroke();
     console.log('body-main')
  }
@@ -264,9 +335,10 @@ function updateWord(){
     let canvas = document.getElementById('gallows');
     let context = canvas.getContext('2d');
     context.beginPath();
-    context.moveTo(50, 100);
-    context.lineTo(40, 130);
+    context.moveTo(100, 100);
+    context.lineTo(90, 130);
     context.strokeStyle = '#ffffff';
+    context.lineWidth = 3;
     context.stroke();
     console.log('leg1')
  }
@@ -274,9 +346,10 @@ function updateWord(){
     let canvas = document.getElementById('gallows');
     let context = canvas.getContext('2d');
     context.beginPath();
-    context.moveTo(50, 100);
-    context.lineTo(60, 130);
+    context.moveTo(100, 100);
+    context.lineTo(110, 130);
     context.strokeStyle = '#ffffff';
+    context.lineWidth = 3;
     context.stroke();
     console.log('leg2')
  }
@@ -284,12 +357,18 @@ function updateWord(){
     let canvas = document.getElementById('gallows');
     let context = canvas.getContext('2d');
     context.beginPath();
-    context.moveTo(35, 70);
-    context.lineTo(65, 70);
+    context.moveTo(70, 70);
+    context.lineTo(130, 70);
     context.strokeStyle = '#ffffff';
+    context.lineWidth = 3;
     context.stroke();
     console.log('arms')
+    for (i = 0; i < alpha.length; i++) {
+        document.getElementById('btn-' + alpha[i]).disabled = true;
+    }
  }
+
+ 
 
  /* lives counter. 
  display difficulty.
