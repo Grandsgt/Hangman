@@ -107,7 +107,7 @@ function makeArr() {
     return words + reseter();
 }
 
-function updateWord(){
+function updateWord() {
     const cleanerList = document.querySelectorAll('.character');
     cleanerList.forEach(character => {character.remove()});
     return setWord();
@@ -163,6 +163,9 @@ function updateWord(){
             }
             if(guesses == 0) {
                 stage10();
+                for (i = 0; i < alpha.length; i++) {
+                    document.getElementById('btn-' + alpha[i]).disabled = true;
+                }
 
                 console.log('Loser!');
             }
@@ -186,6 +189,9 @@ function updateWord(){
             if(guesses == 0) {
                 stage8();
                 stage9();
+                for (i = 0; i < alpha.length; i++) {
+                    document.getElementById('btn-' + alpha[i]).disabled = true;
+                }
                 console.log('Loser!')
             }
         } else if (difficulty == 'hard') {
@@ -202,6 +208,9 @@ function updateWord(){
                 stage8();
                 stage9();
                 stage10();
+                for (i = 0; i < alpha.length; i++) {
+                    document.getElementById('btn-' + alpha[i]).disabled = true;
+                }
                 console.log('Loser!')
                 
             }
@@ -363,9 +372,7 @@ function updateWord(){
     context.lineWidth = 3;
     context.stroke();
     console.log('arms')
-    for (i = 0; i < alpha.length; i++) {
-        document.getElementById('btn-' + alpha[i]).disabled = true;
-    }
+    
  }
 
  
