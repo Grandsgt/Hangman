@@ -104,7 +104,7 @@ function setWord() {
 function makeArr() {
     words = document.getElementById('customWord').value.split(" ");
     console.log(customWords);
-    return words + updateWord();
+    return words + reseter();
 }
 
 function updateWord(){
