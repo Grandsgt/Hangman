@@ -163,6 +163,7 @@ margin-inline-end: 0.75em;
     }
     .navigation[data-visible='false'] {
         transition: transform 350ms ease-in;
+        background: rgba(0, 0, 0, 0.584);
     }
     .nav-toggle {
         display: block;
